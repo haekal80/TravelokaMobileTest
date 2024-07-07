@@ -39,10 +39,11 @@ ${confirmation continue button}    id=com.traveloka.android:id/widget_button_blu
 ${pay now button}                id=com.traveloka.android:id/button_pay_now
 ${pull bar}                    id=com.traveloka.android:id/pull_bar
 ${radio button driver}        //*[@resource-id='com.traveloka.android.rental_impl:id/radio_button_group']/child::*[@index='0']
+${radio button not driver}        //*[@resource-id='com.traveloka.android.rental_impl:id/radio_button_group']/child::*[@index='1']
 
 *** Test Cases ***
 Soal No 3
-    Open Application    http://localhost:4723/wd/hub    platformName=Android    udid=eabb8748    platformVersion=13    automationName=UiAutomator2    deviceName=Haekal Poco F3    appPackage=com.traveloka.android    appActivity=com.traveloka.android.appentry.splash.SplashActivity    noReset=true
+    Open Application    http://localhost:4723/wd/hub    platformName=Android    udid=eabb8748    platformVersion=13    automationName=UiAutomator2    deviceName=Haekal Poco F3    appPackage=com.traveloka.android    appActivity=com.traveloka.android.appentry.splash.SplashActivity    noReset=true    newCommandTimeout=999999
     Click object "Cars" text
     Click object "Without Driver" text
     Click object field    ${pick up location field}
@@ -68,9 +69,11 @@ Soal No 3
     Input text notes field    pickup    catatan pickup
     Input text notes field    dropoff    catatan dropoff
     Click object field    ${continue button}
-    Click object field    ${radio button driver}
+    Click object field    ${radio button not driver}
     Click object field    ${title dropdown}
     Click object "Mr." text
+    Input text field    ${full name driver field}       Muhammad Haekal Driver
+    Input text field    ${mobile number driver field}      85240580241
     Click object field    ${save button trip}
     Click object field    ${continue button view}
     Click object field    ${special request card}
